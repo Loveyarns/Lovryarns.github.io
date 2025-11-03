@@ -1,248 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nisha's Yarn Love — Handmade coziness in every stitch</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lovy Yarns</title>
   <style>
-    :root{
-      --peach: #FFE5DC;
-      --peach-600: #ffc7b0;
-      --accent:#ff8a00;
-      --white:#ffffff;
-      --muted:#6b6b6b;
-      --maxwidth:1100px;
-      --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      color:#222;
-      background: linear-gradient(180deg, #fff6f0 0%, #ffe8df 50%, #ffdcd0 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #fff6f2;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    .site{
-      max-width:var(--maxwidth);
-      margin:0 auto;
-      padding:32px;
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: #ffc8b2;
+      color: #fff;
+      border-bottom: 5px solid #ffae97;
     }
 
-    header.hero{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:36px;
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .logo{
-      font-family:"Pacifico", cursive;
-      font-size:46px;
-      color:var(--accent);
-      letter-spacing:0.5px;
-      text-shadow: 1px 2px 4px rgba(255,170,0,0.2);
-    }
-    .tag{
-      font-weight:600;
-      color:#333;
-    }
-    .aboutline{
-      color:var(--muted);
-      font-size:14px;
-      margin-top:6px;
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
     }
 
-    nav.topbar{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .btn{
-      background:var(--peach);
-      border:none;
-      padding:10px 14px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:600;
-      transition:transform .18s ease, box-shadow .18s ease;
-      box-shadow: 0 4px 12px rgba(255,138,101,0.06);
-    }
-    .btn:hover{ transform: translateY(-3px) }
-    .btn.ghost{
-      background:transparent;
-      border:1px solid rgba(0,0,0,0.06);
+    header p {
+      margin-top: 0.7rem;
+      font-size: 1.1rem;
+      color: #fffaf8;
     }
 
-    /* Hero panel */
-    .hero-panel{
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:center;
-      padding:20px 32px;
-      margin-top:18px;
-    }
-    .hero-card{
-      background: linear-gradient(180deg, rgba(255,246,243,1), rgba(255,238,230,0.9));
-      border-radius: var(--radius);
-      padding:28px;
-      box-shadow: 0 8px 30px rgba(15,15,15,0.05);
-    }
-
-    /* New "About" section */
-    section.about {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 36px;
-      margin-top: 60px;
-      box-shadow: 0 8px 30px rgba(15,15,15,0.05);
-    }
-    .about h2 {
-      font-family: "Pacifico";
-      color: var(--accent);
-      font-size: 30px;
-      margin-bottom: 16px;
-    }
-    .about p {
+    /* SECTION HEADINGS */
+    h2 {
+      text-align: center;
       color: #444;
-      font-size: 16px;
-      max-width: 800px;
-      margin-bottom: 16px;
+      margin-top: 3rem;
+      font-size: 2rem;
+      position: relative;
     }
 
-    /* Quote Section */
-    section.quotes {
-      text-align:center;
-      margin: 60px 0;
-      background: linear-gradient(90deg,#ffece2,#fff8f6);
-      padding: 40px;
-      border-radius: var(--radius);
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #ffae97;
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    .note {
+      text-align: center;
+      margin-bottom: 2rem;
       font-style: italic;
-      color: #5b3a29;
-      font-size: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      color: #666;
     }
 
-    /* Extra photo section */
-    section.gallery {
-      margin-top:40px;
-      padding:22px;
-      display:grid;
+    /* PRODUCTS */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 1rem;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .price {
+      margin: 0 1rem;
+      color: #e67355;
+      font-weight: bold;
+    }
+
+    .desc {
+      margin: 0 1rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap:18px;
-      align-items:start;
-    }
-    .gimg{
-      width:100%;
-      border-radius:12px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow: 0 6px 18px rgba(20,20,20,0.05);
-    }
-    .gimg img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition: transform .3s ease;
-    }
-    .gimg:hover img{ transform: scale(1.05) }
-
-    footer{
-      margin-top:60px;
-      padding:22px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      border-radius:12px;
-      background: linear-gradient(90deg, rgba(255,246,243,0.9), rgba(255,241,239,0.6));
-    }
-    a.insta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:linear-gradient(90deg,var(--peach),var(--peach-600));
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    @media (max-width:980px){
-      .hero-panel{ grid-template-columns: 1fr; }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(60px);
+      transition: transform 0.8s ease, opacity 0.8s ease;
     }
-    @media (max-width:560px){
-      header.hero{ flex-direction:column; gap:12px; padding:16px }
-      .logo{ font-size:36px }
+
+    .gallery-grid img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #ffc8b2;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="site">
-    <header class="hero">
-      <div class="brand">
-        <div class="logo">Nisha's Yarn Love</div>
-        <div class="tag">Handmade coziness in every stitch</div>
-        <div class="aboutline">Dubai Based</div>
+  <header>
+    <h1>💗 Lovy Yarns</h1>
+    <p>Handmade creations, made with love — every piece is unique.</p>
+  </header>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <p class="note">
+      I don’t take custom orders — each item is handmade and listed when ready.
+    </p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/wool-balls.jpg" alt="Colorful yarn balls" />
+        <h3>Colorful Yarn Balls</h3>
+        <p class="price">$18</p>
+        <p class="desc">A mix of cozy colors and textures for your creative projects.</p>
       </div>
-      <nav class="topbar">
-        <a class="btn ghost" href="#products">Shop</a>
-        <a class="btn" href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-    </header>
 
-    <!-- Hero Panel -->
-    <section class="hero-panel">
-      <div class="hero-card">
-        <div style="font-size:20px;font-weight:600;">Handmade crochet pieces — small batches, cozy vibes.</div>
-        <div style="color:#555;margin-top:10px;">Each item is made slowly and lovingly by hand. When you wear or gift a Nisha creation, you’re sharing warmth that was made stitch by stitch.</div>
-        <div style="margin-top:18px"><a class="btn" href="#products">See latest</a></div>
+      <div class="product-card">
+        <img src="images/product2.jpg" alt="Crochet keychain" />
+        <h3>Mini Crochet Keychain</h3>
+        <p class="price">$15</p>
+        <p class="desc">A tiny handmade charm made from leftover yarn bits.</p>
       </div>
-      <img src="https://picsum.photos/seed/yarn1/900/700" alt="crochet sample" style="width:100%;border-radius:12px;">
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <h2>About My Craft</h2>
-      <p>Hi! I'm Nisha — I fell in love with crochet because it’s like painting with yarn. Every loop tells a story, every piece carries warmth and patience.</p>
-      <p>From cozy blankets to tiny amigurumi friends, I pour my heart into each creation. Every piece is unique, handmade, and made right here in Dubai.</p>
-    </section>
-
-    <!-- Quotes -->
-    <section class="quotes">
-      “Made with patience, wrapped in love, and stitched with joy.” 💕
-    </section>
-
-    <!-- Gallery -->
-    <section class="gallery">
-      <div class="gimg"><img src="https://picsum.photos/seed/g1/600/600" alt="crochet gallery"></div>
-      <div class="gimg"><img src="https://picsum.photos/seed/g2/600/600" alt="crochet gallery"></div>
-      <div class="gimg"><img src="https://picsum.photos/seed/g3/600/600" alt="crochet gallery"></div>
-      <div class="gimg"><img src="https://picsum.photos/seed/g4/600/600" alt="crochet gallery"></div>
-    </section>
-
-    <footer>
-      <div>
-        <strong>Nisha's Yarn Love</strong><br>
-        <span style="color:#666;font-size:13px;">Made with love in Dubai • Handmade coziness in every stitch</span>
+      <div class="product-card">
+        <img src="images/product3.jpg" alt="Wool tote bag" />
+        <h3>Handmade Wool Tote</h3>
+        <p class="price">$40</p>
+        <p class="desc">A simple yet elegant tote made entirely from soft yarn.</p>
       </div>
-      <a class="insta" href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank" rel="noopener">Instagram</a>
-    </footer>
-  </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Soft pink yarn ball" class="slide-in" />
+      <img src="images/gallery2.jpg" alt="Knitting needles and wool" class="slide-in" />
+      <img src="images/gallery3.jpg" alt="Handmade wool scarf" class="slide-in" />
+      <img src="images/gallery4.jpg" alt="Basket of yarn" class="slide-in" />
+      <img src="images/gallery5.jpg" alt="Multicolor wool close-up" class="slide-in" />
+      <img src="images/gallery6.jpg" alt="Crochet project in progress" class="slide-in" />
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Lovy Yarns | Handmade with care 💕</p>
+  </footer>
+
+  <script>
+    // Scroll animation for gallery
+    const images = document.querySelectorAll('.slide-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    images.forEach(img => observer.observe(img));
+  </script>
 </body>
 </html>
