@@ -1,223 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lovy Yarns</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nisha's Yarn Love — Handmade coziness in every stitch</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --peach: #ffddcc;
+      --peach-600: #ffbca3;
+      --accent: #ffd479;
+      --white: #ffffff;
+      --muted: #6b6b6b;
+      --maxwidth: 1100px;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background-color: #fff6f2;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color: #222;
+      background: linear-gradient(180deg, #fff8f5 0%, #ffe4d7 50%, #ffe0d0 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+    }
+
+    /* Page container */
+    .site {
+      max-width: var(--maxwidth);
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    /* Header / Hero */
+    header.hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 36px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .logo {
+      font-family: "Pacifico", cursive;
+      font-size: 46px;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .tag {
+      font-weight: 600;
       color: #333;
-      line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
-    /* HEADER */
-    header {
+    .aboutline {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* CTA / nav */
+    nav.topbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      background: var(--peach);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 4px 12px rgba(255,138,101,0.06);
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Hero panel */
+    .hero-panel {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+      padding: 20px 32px;
+      margin-top: 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,246,243,1), rgba(255,241,239,0.8));
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(15,15,15,0.04);
+    }
+
+    .hero-intro { font-size: 20px; color: #333; }
+    .hero-sub { color: var(--muted); margin-top: 10px; }
+
+    /* Quotes / Fillers */
+    .quote {
       text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: #ffc8b2;
-      color: #fff;
-      border-bottom: 5px solid #ffae97;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-    }
-
-    header p {
-      margin-top: 0.7rem;
-      font-size: 1.1rem;
-      color: #fffaf8;
-    }
-
-    /* SECTION HEADINGS */
-    h2 {
-      text-align: center;
-      color: #444;
-      margin-top: 3rem;
-      font-size: 2rem;
-      position: relative;
-    }
-
-    h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: #ffae97;
-      margin: 0.5rem auto;
-      border-radius: 2px;
-    }
-
-    .note {
-      text-align: center;
-      margin-bottom: 2rem;
       font-style: italic;
-      color: #666;
+      color: #7a4a3a;
+      margin: 40px 0;
+      font-size: 17px;
     }
 
-    /* PRODUCTS */
-    .product-grid {
+    /* Products section */
+    section.products { margin-top: 44px; }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
     }
 
-    .product-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    .card {
+      background: var(--white);
+      border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 12px;
+      box-shadow: 0 6px 18px rgba(20,20,20,0.03);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .product-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(20,20,20,0.06);
     }
 
-    .product-card img {
+    .media {
       width: 100%;
-      height: 250px;
+      height: 180px;
+      background: #f7f3f1;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
       object-fit: cover;
+      margin-bottom: 10px;
     }
 
-    .product-card h3 {
-      margin: 1rem;
-      font-size: 1.2rem;
-      color: #444;
-    }
+    .pname { font-weight: 600; font-size: 16px; }
+    .pmeta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .stock { margin-top: 8px; font-weight: 600; color: #888; font-size: 13px; }
 
-    .price {
-      margin: 0 1rem;
-      color: #e67355;
-      font-weight: bold;
-    }
-
-    .desc {
-      margin: 0 1rem 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    /* GALLERY */
-    .gallery-grid {
+    /* Gallery jumbled */
+    .gallery {
+      margin-top: 40px;
+      padding: 22px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      align-items: start;
     }
 
-    .gallery-grid img {
+    .gimg {
       width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 1/1;
+      border-radius: 12px;
+      overflow: hidden;
+      transform: translateX(-60px);
       opacity: 0;
-      transform: translateY(60px);
-      transition: transform 0.8s ease, opacity 0.8s ease;
+      transition: transform .8s cubic-bezier(.2,.9,.27,1), opacity .8s ease, box-shadow .35s ease;
+      box-shadow: 0 8px 20px rgba(15,15,15,0.04);
+      background: #fff;
     }
 
-    .gallery-grid img.visible {
+    .gimg.show {
+      transform: translateX(0);
       opacity: 1;
-      transform: translateY(0);
     }
 
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .gimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    /* FOOTER */
+    /* Footer / contact */
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #ffc8b2;
-      color: white;
-      margin-top: 3rem;
+      margin-top: 46px;
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, rgba(255,246,243,0.9), rgba(255,241,239,0.6));
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .social { display: flex; gap: 12px; align-items: center; }
+
+    a.insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--peach), var(--peach-600));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
     }
+
+    /* Animations utility classes */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.27,1); }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .reveal-left { opacity: 0; transform: translateX(-40px); }
+    .reveal-left.show { opacity: 1; transform: translateX(0); }
+
+    .reveal-right { opacity: 0; transform: translateX(40px); }
+    .reveal-right.show { opacity: 1; transform: translateX(0); }
+
+    /* Responsive */
+    @media (max-width:980px){ .hero-panel{ grid-template-columns:1fr; } .gallery{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px){ header.hero{ flex-direction:column; gap:12px; padding:16px; } .logo{ font-size:34px; } .hero-panel{ padding:14px; } .media{ height:150px; } .gallery{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
-  <header>
-    <h1>💗 Lovy Yarns</h1>
-    <p>Handmade creations, made with love — every piece is unique.</p>
-  </header>
+  <div class="site">
 
-  <!-- PRODUCTS -->
-  <section id="products">
-    <h2>Our Products</h2>
-    <p class="note">
-      I don’t take custom orders — each item is handmade and listed when ready.
-    </p>
+    <!-- Header -->
+    <header class="hero">
+      <div class="brand">
+        <div class="logo">Nisha's Yarn Love</div>
+        <div class="tag">Handmade coziness in every stitch</div>
+        <div class="aboutline">Dubai Based</div>
+      </div>
+      <nav class="topbar">
+        <a class="btn ghost" href="#products">Shop</a>
+        <a class="btn" href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </header>
 
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/wool-balls.jpg" alt="Colorful yarn balls" />
-        <h3>Colorful Yarn Balls</h3>
-        <p class="price">$18</p>
-        <p class="desc">A mix of cozy colors and textures for your creative projects.</p>
+    <!-- Hero panel -->
+    <section class="hero-panel">
+      <div class="hero-card reveal-left">
+        <div class="hero-intro">Handmade crochet pieces — small batches, cozy vibes.</div>
+        <div class="hero-sub">Everything made by me, with love and slow stitches. Each item is one-of-a-kind.</div>
+        <div style="margin-top:18px">
+          <a class="btn" href="#products">See latest</a>
+        </div>
       </div>
 
-      <div class="product-card">
-        <img src="images/product2.jpg" alt="Crochet keychain" />
-        <h3>Mini Crochet Keychain</h3>
-        <p class="price">$15</p>
-        <p class="desc">A tiny handmade charm made from leftover yarn bits.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end;">
+        <div style="width:420px; border-radius:12px; overflow:hidden" class="reveal-right">
+          <img src="https://picsum.photos/seed/yarn1/900/700" alt="crochet sample" style="width:100%; display:block; object-fit:cover;">
+        </div>
+        <div style="display:flex; gap:10px; width:100%; justify-content:flex-end;">
+          <div style="background:var(--peach); padding:10px 12px; border-radius:10px; font-weight:600; color:#7a2a10">Handmade</div>
+          <div style="background:#fff; padding:10px 12px; border-radius:10px; border:1px solid rgba(0,0,0,0.04)">Made in Dubai</div>
+        </div>
       </div>
+    </section>
 
-      <div class="product-card">
-        <img src="images/product3.jpg" alt="Wool tote bag" />
-        <h3>Handmade Wool Tote</h3>
-        <p class="price">$40</p>
-        <p class="desc">A simple yet elegant tote made entirely from soft yarn.</p>
+    <div class="quote reveal">“Each stitch carries a little bit of warmth from my heart.” 💕</div>
+
+    <!-- Products -->
+    <section id="products" class="products">
+      <div class="section-title reveal">Latest pieces</div>
+      <div class="grid">
+        <article class="card reveal"><img class="media" src="https://picsum.photos/seed/p1/600/400"><div class="pname">Cozy Mini Blanket</div><div class="pmeta">Hand-crocheted, soft acrylic blend • 45x60 cm</div><div class="stock">Only 1 available</div></article>
+        <article class="card reveal"><img class="media" src="https://picsum.photos/seed/p2/600/400"><div class="pname">Pastel Beanie</div><div class="pmeta">Lightweight, fits newborn to toddler</div><div class="stock">Only 1 available</div></article>
+        <article class="card reveal"><img class="media" src="https://picsum.photos/seed/p3/600/400"><div class="pname">Textured Cushion Cover</div><div class="pmeta">Removable cover, hand-wash recommended</div><div class="stock">Only 1 available</div></article>
+        <article class="card reveal"><img class="media" src="https://picsum.photos/seed/p4/600/400"><div class="pname">Mini Amigurumi</div><div class="pmeta">Cute desk companion — 12 cm tall</div><div class="stock">Only 1 available</div></article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Soft pink yarn ball" class="slide-in" />
-      <img src="images/gallery2.jpg" alt="Knitting needles and wool" class="slide-in" />
-      <img src="images/gallery3.jpg" alt="Handmade wool scarf" class="slide-in" />
-      <img src="images/gallery4.jpg" alt="Basket of yarn" class="slide-in" />
-      <img src="images/gallery5.jpg" alt="Multicolor wool close-up" class="slide-in" />
-      <img src="images/gallery6.jpg" alt="Crochet project in progress" class="slide-in" />
-    </div>
-  </section>
+    <div class="quote reveal">“Made slowly, with care — because warmth takes time.” 🧶</div>
 
-  <footer>
-    <p>© 2025 Lovy Yarns | Handmade with care 💕</p>
-  </footer>
+    <!-- Gallery -->
+    <section class="gallery" aria-label="Gallery of crochet pieces">
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g1/600/600"></div>
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g2/600/600"></div>
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g3/600/600"></div>
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g4/600/600"></div>
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g5/600/600"></div>
+      <div class="gimg reveal"><img src="https://picsum.photos/seed/g6/600/600"></div>
+    </section>
+
+    <footer>
+      <div>
+        <div style="font-weight:700">Nisha's Yarn Love</div>
+        <div style="color:var(--muted); font-size:13px">Handmade coziness in every stitch • Dubai Based</div>
+      </div>
+      <div class="social">
+        <a class="insta" href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zM12 7.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </footer>
+
+  </div>
 
   <script>
-    // Scroll animation for gallery
-    const images = document.querySelectorAll('.slide-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    // Reveal animation
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-
-    images.forEach(img => observer.observe(img));
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, .gimg').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
