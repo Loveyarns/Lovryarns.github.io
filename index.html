@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nisha's Yarn Love</title>
 <style>
-/* Base reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -16,34 +16,33 @@
 
 /* Body & colors */
 body {
-  background-color: #fffaf5;
+  background-color: #fff2ee; /* soft peach */
   color: #333;
   line-height: 1.6;
 }
 
-/* Header with doodles background */
+/* Header */
 header {
   position: relative;
   text-align: center;
-  padding: 120px 20px 80px 20px;
-  background-color: #fffaf5;
+  padding: 120px 20px 100px 20px;
+  background-color: #ffe6e1;
   overflow: hidden;
 }
 
-/* Subtle wool/doodle background using CSS pseudo-elements */
+/* Subtle wool/doodle background */
 header::before {
   content: "🧶 ✨ 🌿 ✨ 🧶 ✨ 🌿";
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%) rotate(-5deg);
   font-size: 5rem;
-  color: rgba(255, 223, 0, 0.1); /* subtle yellow */
+  color: rgba(255, 184, 0, 0.08);
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
 }
-
 header::after {
   content: "🌿 ✨ 🧶 ✨ 🌿 🧶";
   position: absolute;
@@ -51,7 +50,7 @@ header::after {
   left: 50%;
   transform: translateX(-50%) rotate(3deg);
   font-size: 5rem;
-  color: rgba(255, 223, 0, 0.08);
+  color: rgba(255, 184, 0, 0.06);
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
@@ -62,7 +61,7 @@ header::after {
   position: relative;
   font-size: 5rem;
   font-weight: bold;
-  color: #FFD700; /* bright yellow */
+  color: #FFD700;
   line-height: 1.2;
   z-index: 1;
 }
@@ -70,7 +69,7 @@ header::after {
 .tagline {
   position: relative;
   font-size: 1.5rem;
-  color: #ff7f7f;
+  color: #ff6f61;
   margin-top: 20px;
   z-index: 1;
 }
@@ -83,12 +82,11 @@ header::after {
   z-index: 1;
 }
 
-/* Scroll Button */
 .scroll-btn {
   display: inline-block;
   margin-top: 40px;
   padding: 10px 20px;
-  background-color: #ff7f7f;
+  background-color: #ff6f61;
   color: #fff;
   border-radius: 25px;
   text-decoration: none;
@@ -97,7 +95,6 @@ header::after {
   z-index: 1;
   position: relative;
 }
-
 .scroll-btn:hover {
   background-color: #ff4d4d;
 }
@@ -107,7 +104,7 @@ section h2 {
   text-align: center;
   font-size: 2.5rem;
   margin: 50px 0 30px 0;
-  color: #ff7f7f;
+  color: #ff6f61;
 }
 
 /* Products Grid */
@@ -122,12 +119,14 @@ section h2 {
 .product img {
   width: 100%;
   border-radius: 15px;
+  background-color: #fff0f0; /* placeholder background */
 }
 
 .product p {
   margin-top: 10px;
   font-weight: bold;
   text-align: center;
+  color: #ff4d4d;
 }
 
 /* Gallery Grid */
@@ -152,18 +151,13 @@ section h2 {
 .tilt-2 { transform: rotate(8deg) translateY(50px); }
 .tilt-3 { transform: rotate(-5deg) translateY(50px); }
 
-/* Use CSS animation on scroll with "scroll" trigger via :is-visible */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(50px) rotate(0deg); }
-  to { opacity: 1; transform: translateY(0) rotate(0deg); }
-}
-
-/* Trigger animation when in viewport using intersection */
+/* Gallery fade-in on scroll */
 .gallery-img.in-view {
-  animation: fadeInUp 0.8s forwards;
+  transform: rotate(0deg) translateY(0);
+  opacity: 1;
 }
 
-/* Contact & Instagram */
+/* Contact Section */
 section#contact p {
   text-align: center;
   margin-bottom: 50px;
@@ -182,12 +176,15 @@ section#contact a:hover {
 
 /* Footer */
 footer {
-  background-color: #ffdede;
+  background-color: #ffe6e1;
   padding: 20px 0;
   text-align: center;
 }
 
-/* Smooth fade-in effect for gallery using CSS only */
+/* Smooth scroll for anchor links */
+a[href^="#"] {
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -202,24 +199,24 @@ footer {
 <section id="products">
   <h2>Products</h2>
   <div class="product-grid">
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 1"><p>Product 1</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 2"><p>Product 2</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 3"><p>Product 3</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 4"><p>Product 4</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 5"><p>Product 5</p></div>
-    <div class="product"><img src="https://via.placeholder.com/200" alt="Product 6"><p>Product 6</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=1" alt="Product 1"><p>Product 1</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=2" alt="Product 2"><p>Product 2</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=3" alt="Product 3"><p>Product 3</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=4" alt="Product 4"><p>Product 4</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=5" alt="Product 5"><p>Product 5</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=6" alt="Product 6"><p>Product 6</p></div>
   </div>
 </section>
 
 <section id="gallery">
   <h2>Style & Inspiration</h2>
   <div class="gallery-grid">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-1" alt="Gallery 1">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-2" alt="Gallery 2">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-3" alt="Gallery 3">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-2" alt="Gallery 4">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-1" alt="Gallery 5">
-    <img src="https://via.placeholder.com/150" class="gallery-img tilt-3" alt="Gallery 6">
+    <img src="https://picsum.photos/150?random=11" class="gallery-img tilt-1" alt="Gallery 1">
+    <img src="https://picsum.photos/150?random=12" class="gallery-img tilt-2" alt="Gallery 2">
+    <img src="https://picsum.photos/150?random=13" class="gallery-img tilt-3" alt="Gallery 3">
+    <img src="https://picsum.photos/150?random=14" class="gallery-img tilt-2" alt="Gallery 4">
+    <img src="https://picsum.photos/150?random=15" class="gallery-img tilt-1" alt="Gallery 5">
+    <img src="https://picsum.photos/150?random=16" class="gallery-img tilt-3" alt="Gallery 6">
   </div>
 </section>
 
@@ -233,14 +230,11 @@ footer {
 </footer>
 
 <script>
-// Intersection observer in JS removed; replaced with pure CSS animation
-// Instead, we add a small inline JS to add 'in-view' class when scrolled into view
+// Gallery fade-in on scroll
 const galleryImgs = document.querySelectorAll('.gallery-img');
 function isInViewport(el) {
   const rect = el.getBoundingClientRect();
-  return (
-    rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100
-  );
+  return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100;
 }
 function checkGallery() {
   galleryImgs.forEach(img => {
