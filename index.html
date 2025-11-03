@@ -14,11 +14,18 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-/* Body & colors */
+/* Body Background (More Doodles) */
 body {
-  background-color: #fff2ee; /* soft peach */
+  background-color: #fff2ee;
   color: #333;
   line-height: 1.6;
+  background-image: 
+    url("https://emojiapi.dev/api/v1/1f9f6/512.png"), /* yarn */
+    url("https://emojiapi.dev/api/v1/1f343/512.png"), /* leaf */
+    url("https://emojiapi.dev/api/v1/1f49c/512.png"); /* heart */
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  opacity: 0.98;
 }
 
 /* Header */
@@ -30,56 +37,35 @@ header {
   overflow: hidden;
 }
 
-/* Subtle wool/doodle background */
-header::before {
-  content: "🧶 ✨ 🌿 ✨ 🧶 ✨ 🌿";
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-5deg);
-  font-size: 5rem;
-  color: rgba(255, 184, 0, 0.08);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 0;
+/* Logo beside heading */
+.brand-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-header::after {
-  content: "🌿 ✨ 🧶 ✨ 🌿 🧶";
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(3deg);
-  font-size: 5rem;
-  color: rgba(255, 184, 0, 0.06);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 0;
+.brand-wrapper img {
+  width: 120px;
+  margin-bottom: 15px;
 }
 
 /* Brand Name */
 .brand-name {
-  position: relative;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: #FFD700;
   line-height: 1.2;
-  z-index: 1;
 }
 
 .tagline {
-  position: relative;
   font-size: 1.5rem;
   color: #ff6f61;
-  margin-top: 20px;
-  z-index: 1;
+  margin-top: 10px;
 }
 
 .about {
-  position: relative;
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 1.2rem;
   color: #ff4d4d;
-  z-index: 1;
 }
 
 .scroll-btn {
@@ -92,8 +78,6 @@ header::after {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
-  z-index: 1;
-  position: relative;
 }
 .scroll-btn:hover {
   background-color: #ff4d4d;
@@ -115,18 +99,24 @@ section h2 {
   width: 90%;
   margin: 0 auto 50px auto;
 }
-
 .product img {
   width: 100%;
   border-radius: 15px;
-  background-color: #fff0f0; /* placeholder background */
+  background-color: #fff0f0;
 }
-
 .product p {
   margin-top: 10px;
   font-weight: bold;
   text-align: center;
   color: #ff4d4d;
+}
+
+/* Banner under gallery title */
+.banner-img {
+  display: block;
+  width: 60%;
+  margin: 0 auto 30px auto;
+  border-radius: 20px;
 }
 
 /* Gallery Grid */
@@ -141,19 +131,12 @@ section h2 {
 .gallery-img {
   width: 150px;
   border-radius: 15px;
-  transform: translateY(50px) rotate(0deg);
+  transform: translateY(80px) scale(0.8);
   opacity: 0;
-  transition: all 0.8s ease-out;
+  transition: all 0.9s ease-out;
 }
-
-/* Tilt classes */
-.tilt-1 { transform: rotate(-10deg) translateY(50px); }
-.tilt-2 { transform: rotate(8deg) translateY(50px); }
-.tilt-3 { transform: rotate(-5deg) translateY(50px); }
-
-/* Gallery fade-in on scroll */
 .gallery-img.in-view {
-  transform: rotate(0deg) translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
@@ -162,14 +145,12 @@ section#contact p {
   text-align: center;
   margin-bottom: 50px;
 }
-
 section#contact a {
   color: #ff4d4d;
   font-weight: bold;
   text-decoration: none;
   font-size: 1.3rem;
 }
-
 section#contact a:hover {
   text-decoration: underline;
 }
@@ -180,17 +161,16 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
-
-/* Smooth scroll for anchor links */
-a[href^="#"] {
-  cursor: pointer;
-}
 </style>
 </head>
 <body>
 
 <header id="home">
-  <h1 class="brand-name">Nisha's Yarn Love</h1>
+  <div class="brand-wrapper">
+    <!-- ✅ Replace this URL with RAW logo URL -->
+    <img src="LOGO_URL_HERE" alt="Logo">
+    <h1 class="brand-name">Nisha's Yarn Love</h1>
+  </div>
   <p class="tagline">Handmade coziness in every stitch</p>
   <p class="about">Dubai Based</p>
   <a href="#products" class="scroll-btn">Explore Products ↓</a>
@@ -199,30 +179,30 @@ a[href^="#"] {
 <section id="products">
   <h2>Products</h2>
   <div class="product-grid">
-    <div class="product"><img src="https://picsum.photos/200?random=1" alt="Product 1"><p>Product 1</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=2" alt="Product 2"><p>Product 2</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=3" alt="Product 3"><p>Product 3</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=4" alt="Product 4"><p>Product 4</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=5" alt="Product 5"><p>Product 5</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=6" alt="Product 6"><p>Product 6</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=1"><p>Product 1</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=2"><p>Product 2</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=3"><p>Product 3</p></div>
+    <div class="product"><img src="https://picsum.photos/200?random=4"><p>Product 4</p></div>
   </div>
 </section>
 
 <section id="gallery">
   <h2>Style & Inspiration</h2>
+
+  <!-- ✅ Replace this URL with RAW banner URL -->
+  <img src="BANNER_URL_HERE" class="banner-img" alt="Loveyarns Banner">
+
   <div class="gallery-grid">
-    <img src="https://picsum.photos/150?random=11" class="gallery-img tilt-1" alt="Gallery 1">
-    <img src="https://picsum.photos/150?random=12" class="gallery-img tilt-2" alt="Gallery 2">
-    <img src="https://picsum.photos/150?random=13" class="gallery-img tilt-3" alt="Gallery 3">
-    <img src="https://picsum.photos/150?random=14" class="gallery-img tilt-2" alt="Gallery 4">
-    <img src="https://picsum.photos/150?random=15" class="gallery-img tilt-1" alt="Gallery 5">
-    <img src="https://picsum.photos/150?random=16" class="gallery-img tilt-3" alt="Gallery 6">
+    <img src="https://picsum.photos/150?random=11" class="gallery-img">
+    <img src="https://picsum.photos/150?random=12" class="gallery-img">
+    <img src="https://picsum.photos/150?random=13" class="gallery-img">
+    <img src="https://picsum.photos/150?random=14" class="gallery-img">
   </div>
 </section>
 
 <section id="contact">
   <h2>Follow Me</h2>
-  <p><a href="https://www.instagram.com/nisha_harry_saju_rishi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a></p>
+  <p><a href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank">Instagram</a></p>
 </section>
 
 <footer>
@@ -230,15 +210,11 @@ a[href^="#"] {
 </footer>
 
 <script>
-// Gallery fade-in on scroll
 const galleryImgs = document.querySelectorAll('.gallery-img');
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100;
-}
 function checkGallery() {
   galleryImgs.forEach(img => {
-    if(isInViewport(img)) img.classList.add('in-view');
+    const rect = img.getBoundingClientRect();
+    if(rect.top <= window.innerHeight - 100) img.classList.add('in-view');
   });
 }
 window.addEventListener('scroll', checkGallery);
