@@ -1,219 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nisha's Yarn Love</title>
-<style>
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-}
-
-/* Body */
-body {
-  background-color: #f9d9d3; /* softer warm peach */
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  position: relative;
-  text-align: center;
-  padding: 120px 20px 100px 20px;
-  background-color: #f5c7bd; /* slightly deeper peach */
-}
-
-/* Logo + Title */
-.brand-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.brand-wrapper img {
-  width: 120px;
-  margin-bottom: 10px;
-}
-
-/* Brand Name */
-.brand-name {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #ffce00; /* warm soft gold */
-  line-height: 1.1;
-}
-
-.tagline {
-  font-size: 1.4rem;
-  color: #ff6f61;
-  margin-top: 10px;
-}
-
-.about {
-  margin-top: 6px;
-  font-size: 1.15rem;
-  color: #ff4d4d;
-}
-
-.scroll-btn {
-  margin-top: 35px;
-  padding: 10px 22px;
-  background-color: #ff6f61;
-  color: #fff;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.scroll-btn:hover {
-  background-color: #ff4d4d;
-}
-
-/* Section Titles */
-section h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  margin: 50px 0 30px 0;
-  color: #ff6f61;
-}
-
-/* Products Grid */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  width: 90%;
-  margin: 0 auto 50px auto;
-}
-.product img {
-  width: 100%;
-  border-radius: 15px;
-  background-color: #ffeceb;
-}
-.product p {
-  margin-top: 10px;
-  font-weight: bold;
-  text-align: center;
-  color: #d64545;
-}
-
-/* Banner Image */
-.banner-img {
-  display: block;
-  width: 60%;
-  margin: 0 auto 30px auto;
-  border-radius: 18px;
-}
-
-/* Gallery */
-.gallery-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-bottom: 60px;
-}
-
-.gallery-img {
-  width: 150px;
-  border-radius: 15px;
-  transform: translateY(70px) scale(0.9);
-  opacity: 0;
-  transition: all 0.9s ease-out;
-}
-.gallery-img.in-view {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-/* Contact */
-section#contact p {
-  text-align: center;
-  margin-bottom: 50px;
-}
-section#contact a {
-  color: #ff4d4d;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.3rem;
-}
-section#contact a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  background-color: #f5c7bd;
-  padding: 20px 0;
-  text-align: center;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisha's Yarn Love</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4d6d3;
+            color: #5a4a4a;
+        }
+        header {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #f0c5c1;
+        }
+        header img.banner {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        h1 {
+            margin-top: 10px;
+            font-size: 2.5rem;
+        }
+        h2.small-title {
+            margin-top: -10px;
+            font-weight: normal;
+            font-size: 1.1rem;
+        }
+        section {
+            padding: 25px 15px;
+        }
+        .quote {
+            text-align: center;
+            font-style: italic;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        .products, .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .product-box, .gallery-box {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-box img, .gallery-box img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0c5c1;
+            font-size: 0.9rem;
+        }
+        a {
+            color: #5a4a4a;
+        }
+        .logo {
+            width: 120px;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <img src="logo.png" class="logo" alt="Logo">
+        <img src="banner.jpg" class="banner" alt="Banner">
+        <h1>Nisha's Yarn Love</h1>
+        <h2 class="small-title">loveyarns</h2>
+        <p class="quote">"Handmade coziness in every stitch."</p>
+    </header>
 
-<header id="home">
-  <div class="brand-wrapper">
-    <!-- ✅ Replace this later -->
-    <img src="LOGO_URL_HERE" alt="Logo">
+    <section>
+        <h2>Products</h2>
+        <p class="quote">"Crafted with love, one loop at a time."</p>
+        <div class="products">
+            <div class="product-box"><img src="placeholder1.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box"><img src="placeholder2.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box"><img src="placeholder3.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box"><img src="placeholder4.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box"><img src="placeholder5.jpg"><p>Product Name<br>Price</p></div>
+        </div>
+    </section>
 
-    <h1 class="brand-name">Nisha's Yarn Love</h1>
-  </div>
+    <section>
+        <h2>Gallery</h2>
+        <p class="quote">"Warm threads, warmer memories."</p>
+        <div class="gallery">
+            <div class="gallery-box"><img src="gallery1.jpg"></div>
+            <div class="gallery-box"><img src="gallery2.jpg"></div>
+            <div class="gallery-box"><img src="gallery3.jpg"></div>
+            <div class="gallery-box"><img src="gallery4.jpg"></div>
+        </div>
+    </section>
 
-  <p class="tagline">Handmade coziness in every stitch</p>
-  <p class="about">Dubai Based</p>
-
-  <a href="#products" class="scroll-btn">Explore Products ↓</a>
-</header>
-
-<section id="products">
-  <h2>Products</h2>
-  <div class="product-grid">
-    <div class="product"><img src="https://picsum.photos/200?random=1"><p>Product 1</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=2"><p>Product 2</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=3"><p>Product 3</p></div>
-    <div class="product"><img src="https://picsum.photos/200?random=4"><p>Product 4</p></div>
-  </div>
-</section>
-
-<section id="gallery">
-  <h2>Style & Inspiration</h2>
-
-  <!-- ✅ Replace this later -->
-  <img src="BANNER_URL_HERE" class="banner-img" alt="Loveyarns Banner">
-
-  <div class="gallery-grid">
-    <img src="https://picsum.photos/150?random=11" class="gallery-img">
-    <img src="https://picsum.photos/150?random=12" class="gallery-img">
-    <img src="https://picsum.photos/150?random=13" class="gallery-img">
-    <img src="https://picsum.photos/150?random=14" class="gallery-img">
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Follow Me</h2>
-  <p><a href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank">Instagram</a></p>
-</section>
-
-<footer>
-  <p>&copy; 2025 Nisha's Yarn Love. All rights reserved.</p>
-</footer>
-
-<script>
-const galleryImgs = document.querySelectorAll('.gallery-img');
-function checkGallery() {
-  galleryImgs.forEach(img => {
-    const rect = img.getBoundingClientRect();
-    if(rect.top <= window.innerHeight - 100) img.classList.add('in-view');
-  });
-}
-window.addEventListener('scroll', checkGallery);
-window.addEventListener('load', checkGallery);
-</script>
-
+    <footer>
+        <a href="https://www.instagram.com/nisha_harry_saju_rishi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a><br>
+        © 2025 Nisha's Yarn Love. All rights reserved.
+    </footer>
 </body>
 </html>
