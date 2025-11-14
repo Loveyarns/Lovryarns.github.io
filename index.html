@@ -73,8 +73,56 @@
             display: block;
         }
     </style>
+    <style>
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Scroll animation */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-in-out; }
+        .show { opacity: 1; transform: translateY(0); }
+
+        /* Yarn doodles */
+        .yarn-doodle {
+            position: fixed;
+            width: 120px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        #doodle1 { top: 10%; left: 5%; }
+        #doodle2 { top: 40%; right: 5%; }
+        #doodle3 { bottom: 10%; left: 10%; }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-in-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .doodle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('doodle.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            transform: translateY(0);
+            transition: transform 0.4s ease-out;
+        }
+    </style>
 </head>
 <body>
+    <div class="doodle"></div>
     <header>
         <img src="logo.png" class="logo" alt="Logo">
         <img src="banner.jpg" class="banner" alt="Banner">
@@ -87,7 +135,12 @@
         <h2>Products</h2>
         <p class="quote">"Crafted with love, one loop at a time."</p>
         <div class="products">
-            <div class="product-box"><img src="placeholder1.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/Yg8R9oB.jpeg"><p>Cozy Yarn Ball<br>20 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/1cO9E0C.jpeg"><p>Handmade Coaster<br>15 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/JN5jfsn.jpeg"><p>Mini Plushie<br>25 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/2Xw7eZp.jpeg"><p>Warm Headband<br>30 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/Sy8vOQg.jpeg"><p>Soft Keychain<br>10 AED</p></div>
+        </div>
             <div class="product-box"><img src="placeholder2.jpg"><p>Product Name<br>Price</p></div>
             <div class="product-box"><img src="placeholder3.jpg"><p>Product Name<br>Price</p></div>
             <div class="product-box"><img src="placeholder4.jpg"><p>Product Name<br>Price</p></div>
@@ -99,7 +152,11 @@
         <h2>Gallery</h2>
         <p class="quote">"Warm threads, warmer memories."</p>
         <div class="gallery">
-            <div class="gallery-box"><img src="gallery1.jpg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/8t6Vn1P.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/r8HJeGs.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/BDw0Fv0.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/qUX8e0m.jpeg"></div>
+        </div>
             <div class="gallery-box"><img src="gallery2.jpg"></div>
             <div class="gallery-box"><img src="gallery3.jpg"></div>
             <div class="gallery-box"><img src="gallery4.jpg"></div>
@@ -110,5 +167,44 @@
         <a href="https://www.instagram.com/nisha_harry_saju_rishi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a><br>
         © 2025 Nisha's Yarn Love. All rights reserved.
     </footer>
+    <img id="doodle1" class="yarn-doodle" src="yarn1.png">
+    <img id="doodle2" class="yarn-doodle" src="yarn2.png">
+    <img id="doodle3" class="yarn-doodle" src="yarn3.png">
+
+    <script>
+        const items = document.querySelectorAll('.product-box, .gallery-box');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        items.forEach(item => {
+            item.classList.add('fade-in');
+            observer.observe(item);
+        });
+    </script>
+    <script>
+        const fadeElems = document.querySelectorAll('.fade-in');
+        const doodle = document.querySelector('.doodle');
+
+        function checkFade() {
+            fadeElems.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            checkFade();
+            doodle.style.transform = `translateY(${window.scrollY * 0.1}px)`;
+        });
+
+        checkFade();
+    </script>
 </body>
 </html>
+
