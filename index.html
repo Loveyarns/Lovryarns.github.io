@@ -5,41 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nisha's Yarn Love</title>
     <style>
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4d6d3;
-            color: #5a4a4a;
+            background-color: #f5d0b5; /* proper peach-skin colour */
+            color: #4b3a3a;
         }
         header {
             text-align: center;
             padding: 20px 10px;
-            background-color: #f0c5c1;
+            background-color: #f2c7a5;
         }
-        header img.banner {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        h1 {
-            margin-top: 10px;
-            font-size: 2.5rem;
-        }
-        h2.small-title {
-            margin-top: -10px;
-            font-weight: normal;
-            font-size: 1.1rem;
-        }
-        section {
-            padding: 25px 15px;
-        }
-        .quote {
-            text-align: center;
-            font-style: italic;
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
+        h1 { margin: 5px 0; font-size: 2.5rem; }
+        h2.small-title { margin-top: -5px; font-size: 1.1rem; font-weight: normal; }
+        section { padding: 25px 15px; }
+        .quote { text-align: center; font-style: italic; margin: 10px 0; }
+
         .products, .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -50,52 +32,15 @@
             padding: 10px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
         .product-box img, .gallery-box img {
             width: 100%;
-            height: 160px;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 6px;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f0c5c1;
-            font-size: 0.9rem;
-        }
-        a {
-            color: #5a4a4a;
-        }
-        .logo {
-            width: 120px;
-            margin: 10px auto;
-            display: block;
-        }
-    </style>
-    <style>
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
 
-        /* Scroll animation */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-in-out; }
-        .show { opacity: 1; transform: translateY(0); }
-
-        /* Yarn doodles */
-        .yarn-doodle {
-            position: fixed;
-            width: 120px;
-            opacity: 0.15;
-            z-index: -1;
-        }
-        #doodle1 { top: 10%; left: 5%; }
-        #doodle2 { top: 40%; right: 5%; }
-        #doodle3 { bottom: 10%; left: 10%; }
-    </style>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -105,27 +50,32 @@
             opacity: 1;
             transform: translateY(0);
         }
+
         .doodle {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
-            background-image: url('doodle.png');
-            background-size: contain;
+            background-image: url('https://i.imgur.com/EnZho6X.png'); /* simple yarn doodle */
+            background-size: 40%;
             background-repeat: no-repeat;
-            opacity: 0.15;
+            opacity: 0.07;
             transform: translateY(0);
             transition: transform 0.4s ease-out;
+        }
+
+        footer {
+            background-color: #f2c7a5;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <div class="doodle"></div>
+
     <header>
-        <img src="logo.png" class="logo" alt="Logo">
-        <img src="banner.jpg" class="banner" alt="Banner">
         <h1>Nisha's Yarn Love</h1>
         <h2 class="small-title">loveyarns</h2>
         <p class="quote">"Handmade coziness in every stitch."</p>
@@ -135,16 +85,11 @@
         <h2>Products</h2>
         <p class="quote">"Crafted with love, one loop at a time."</p>
         <div class="products">
-            <div class="product-box fade-in"><img src="https://i.imgur.com/Yg8R9oB.jpeg"><p>Cozy Yarn Ball<br>20 AED</p></div>
-            <div class="product-box fade-in"><img src="https://i.imgur.com/1cO9E0C.jpeg"><p>Handmade Coaster<br>15 AED</p></div>
-            <div class="product-box fade-in"><img src="https://i.imgur.com/JN5jfsn.jpeg"><p>Mini Plushie<br>25 AED</p></div>
-            <div class="product-box fade-in"><img src="https://i.imgur.com/2Xw7eZp.jpeg"><p>Warm Headband<br>30 AED</p></div>
-            <div class="product-box fade-in"><img src="https://i.imgur.com/Sy8vOQg.jpeg"><p>Soft Keychain<br>10 AED</p></div>
-        </div>
-            <div class="product-box"><img src="placeholder2.jpg"><p>Product Name<br>Price</p></div>
-            <div class="product-box"><img src="placeholder3.jpg"><p>Product Name<br>Price</p></div>
-            <div class="product-box"><img src="placeholder4.jpg"><p>Product Name<br>Price</p></div>
-            <div class="product-box"><img src="placeholder5.jpg"><p>Product Name<br>Price</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/sKjH7rS.jpeg"><p>Soft Yarn Ball<br>20 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/lQpCs7v.jpeg"><p>Crochet Flower<br>15 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/EdguK6F.jpeg"><p>Cute Plushie<br>25 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/QkG2JJB.jpeg"><p>Warm Headband<br>30 AED</p></div>
+            <div class="product-box fade-in"><img src="https://i.imgur.com/J6J7yFe.jpeg"><p>Mini Keychain<br>10 AED</p></div>
         </div>
     </section>
 
@@ -152,39 +97,18 @@
         <h2>Gallery</h2>
         <p class="quote">"Warm threads, warmer memories."</p>
         <div class="gallery">
-            <div class="gallery-box fade-in"><img src="https://i.imgur.com/8t6Vn1P.jpeg"></div>
-            <div class="gallery-box fade-in"><img src="https://i.imgur.com/r8HJeGs.jpeg"></div>
-            <div class="gallery-box fade-in"><img src="https://i.imgur.com/BDw0Fv0.jpeg"></div>
-            <div class="gallery-box fade-in"><img src="https://i.imgur.com/qUX8e0m.jpeg"></div>
-        </div>
-            <div class="gallery-box"><img src="gallery2.jpg"></div>
-            <div class="gallery-box"><img src="gallery3.jpg"></div>
-            <div class="gallery-box"><img src="gallery4.jpg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/UvUS7xH.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/7ivJWZT.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/Hrn6CgC.jpeg"></div>
+            <div class="gallery-box fade-in"><img src="https://i.imgur.com/4GLj3nN.jpeg"></div>
         </div>
     </section>
 
     <footer>
-        <a href="https://www.instagram.com/nisha_harry_saju_rishi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a><br>
+        <a href="https://www.instagram.com/nisha_harry_saju_rishi" target="_blank">Instagram</a><br>
         © 2025 Nisha's Yarn Love. All rights reserved.
     </footer>
-    <img id="doodle1" class="yarn-doodle" src="yarn1.png">
-    <img id="doodle2" class="yarn-doodle" src="yarn2.png">
-    <img id="doodle3" class="yarn-doodle" src="yarn3.png">
 
-    <script>
-        const items = document.querySelectorAll('.product-box, .gallery-box');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        });
-        items.forEach(item => {
-            item.classList.add('fade-in');
-            observer.observe(item);
-        });
-    </script>
     <script>
         const fadeElems = document.querySelectorAll('.fade-in');
         const doodle = document.querySelector('.doodle');
@@ -207,4 +131,3 @@
     </script>
 </body>
 </html>
-
